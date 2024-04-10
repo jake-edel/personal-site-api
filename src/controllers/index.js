@@ -1,16 +1,9 @@
 import conn from '../services/db.js'
 import AppError from '../utils/appError.js'
+import { selectAllRows } from '../models/test_table.js'
 
 const getAllRows = (req, res, next) => {
-	conn.query('SELECT * FROM test_table', (err, data, fields) => {
-		if (err) return next(new Error(err))
-		res.status(200).json({
-			status: 'success',
-			length: data?.length,
-			data: data,
-			controller: 'getAllRows'
-		})
-	})
+	selectAllRows(res, next)
 }
 
 const createRow = (req, res, next) => {
