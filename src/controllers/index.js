@@ -3,7 +3,7 @@ import AppError from '../utils/appError.js'
 import { selectAllRows } from '../models/test_table.js'
 
 const getAllRows = (req, res, next) => {
-	selectAllRows(res, next)
+	selectAllRows(req, res, next)
 }
 
 const createRow = (req, res, next) => {
