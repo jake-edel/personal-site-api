@@ -4,7 +4,7 @@ import controllers from '../controllers/index.js'
 const router = express.Router()
 
 router
-    .route('/testTable')
+    .route(/^\/(testTable|posts)$/)
     .get(controllers.getAllRows)
     .post(controllers.createRow)
     .delete(controllers.deleteRow)
