@@ -4,6 +4,10 @@ import controllers from '../controllers/index.js'
 const router = express.Router()
 
 router
+    .route('/:tableName(test-table|posts)/columns')
+    .get(controllers.getColumnNames)
+
+router
     .route('/:tableName(test-table|posts)')
     .get(controllers.getAllRows)
     .post(controllers.createRow)

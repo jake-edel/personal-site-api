@@ -2,6 +2,21 @@ import conn from '../services/db.js'
 import AppError from '../utils/appError.js'
 import { selectAllRows } from '../models/test_table.js'
 
+const getColumnNames = (req, res, next) => {
+	conn.query(
+		'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=\'posts\'',
+		(err, data, fields) => {
+			if (err) return next(new AppError(err, 500))
+			res.status(200).json({
+				status: 'sucess',
+				message: 'Columns returned',
+				controller: 'getColumnNames',
+				data: data
+			})
+		}
+	)
+}
+
 const getAllRows = (req, res, next) => {
 	selectAllRows(req, res, next)
 }
@@ -82,6 +97,7 @@ const deleteRow = (req, res, next) => {
 }
 
 export default {
+	getColumnNames,
 	getAllRows,
 	createRow,
 	readRow,
