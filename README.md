@@ -1,9 +1,10 @@
 # Node API Template
 Get up and running with a Node API connected to a MySQL database
 
-## MySQL Installation (Debian Linux)
-- `sudo apt install mariadb`
-- `mysql_secure_installation`
+## MySQL Installation (WSL Debian)
+- `sudo apt install mariadb-server`
+- `sudo service mariadb start`
+- `sudo mysql_secure_installation`
 - Create test user
 
 ## Node  API Setup Instructions
